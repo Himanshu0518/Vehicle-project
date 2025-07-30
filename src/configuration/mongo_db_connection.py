@@ -1,4 +1,3 @@
-
 import os
 import sys
 import pymongo
@@ -52,8 +51,14 @@ class MongoDBClient:
                     raise Exception(f"Environment variable '{MONGODB_URL_KEY}' is not set.")
                 
                 # Establish a new MongoDB client connection
-                MongoDBClient.client = pymongo.MongoClient(mongo_db_url, tlsCAFile=ca)
-                
+                MongoDBClient.client = pymongo.MongoClient(
+                                                            mongo_db_url,
+                                                            tlsCAFile=ca,
+                                                            connectTimeoutMS=60000,           # Connection timeout
+                                                            serverSelectionTimeoutMS=60000,   # Server selection timeout
+                                                            socketTimeoutMS=60000             # Socket read/write timeout
+                                                        )
+                                                                        
             # Use the shared MongoClient for this instance
             self.client = MongoDBClient.client
             self.database = self.client[database_name]  # Connect to the specified database

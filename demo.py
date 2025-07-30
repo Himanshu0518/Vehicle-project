@@ -1,3 +1,4 @@
-from src.logger import logging
+from src.pipline.training_pipeline import TrainPipeline
 
-logging.debug("this is debug msg")
+pipeline = TrainPipeline()
+pipeline.run_pipeline()

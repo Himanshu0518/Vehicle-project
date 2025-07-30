@@ -74,11 +74,11 @@ class DataTransformation:
             logging.exception("Exception occurred in get_data_transformer_object method of DataTransformation class")
             raise MyException(e, sys) from e
 
-    def _map_gender_column(self, df):
-        """Map Gender column to 0 for Female and 1 for Male."""
-        logging.info("Mapping 'Gender' column to binary values")
-        df['Gender'] = df['Gender'].map({'Female': 0, 'Male': 1}).astype(int)
-        return df
+    # def _map_gender_column(self, df):
+    #     """Map Gender column to 0 for Female and 1 for Male."""
+    #     logging.info("Mapping 'Gender' column to binary values")
+    #     df['Gender'] = df['Gender'].map({'Female': 0, 'Male': 1}).astype(int)
+    #     return df
 
 
     def _drop_columns(self, df):
@@ -111,10 +111,10 @@ class DataTransformation:
             logging.info("Input and Target cols defined for both train and test df.")
 
             # Apply custom transformations in specified sequence
-            input_feature_train_df = self._map_gender_column(input_feature_train_df)
+       #     input_feature_train_df = self._map_gender_column(input_feature_train_df)
             input_feature_train_df = self._drop_columns(input_feature_train_df)
 
-            input_feature_test_df = self._map_gender_column(input_feature_test_df)
+         #   input_feature_test_df = self._map_gender_column(input_feature_test_df)
             input_feature_test_df = self._drop_columns(input_feature_test_df)
             logging.info("Custom transformations applied to train and test data")
 

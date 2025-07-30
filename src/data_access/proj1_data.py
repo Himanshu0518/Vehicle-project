@@ -41,15 +41,27 @@ class Proj1Data:
             # Access specified collection from the default or specified database
             if database_name is None:
                 collection = self.mongo_client.database[collection_name]
+                
             else:
                 collection = self.mongo_client[database_name][collection_name]
 
             # Convert collection data to DataFrame and preprocess
-            print("Fetching data from mongoDB")
-            df = pd.DataFrame(list(collection.find()))
-            print(f"Data fecthed with len: {len(df)}")
-            if "id" in df.columns.to_list():
-                df = df.drop(columns=["id"], axis=1)
+            print(f"Fetching data from mongoDB")
+
+            try:
+              df = pd.DataFrame(list(collection.find()))
+              print(f"Data fecthed with len: {len(df)}")
+            except Exception as e :
+                print("timeout")
+                raise MyException(e, sys)
+
+            if "_id" in df.columns.to_list():
+                df = df.drop(columns=["_id"], axis=1)
+
+            if "Region_Code" in df.columns.to_list():
+                df = df.drop(columns=["Region_Code"], axis=1)
+
+                 
             df.replace({"na":np.nan},inplace=True)
             return df
 

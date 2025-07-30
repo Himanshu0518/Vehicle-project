@@ -2,7 +2,7 @@ import os
 from datetime import date
 
 # For MongoDB connection
-DATABASE_NAME = "Proj1"
+DATABASE_NAME = "proj1"
 COLLECTION_NAME = "Proj1-Data"
 MONGODB_URL_KEY = "MONGODB_URL"
 
@@ -67,7 +67,7 @@ MIN_SAMPLES_SPLIT_RANDOM_STATE: int = 101
 MODEL Evaluation related constants
 """
 MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.02
-MODEL_BUCKET_NAME = "my-model-mlopsproj"
+MODEL_BUCKET_NAME = "my-first-mlopsproj"
 MODEL_PUSHER_S3_KEY = "model-registry"
 
 
