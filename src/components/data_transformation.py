@@ -84,9 +84,11 @@ class DataTransformation:
     def _drop_columns(self, df):
         """Drop the 'id' column if it exists."""
         logging.info("Dropping 'id' column")
-        drop_col = self._schema_config['drop_columns']
-        if drop_col in df.columns:
-            df = df.drop(drop_col, axis=1)
+        drop_columns = self._schema_config['drop_columns']
+
+        for drop_col in drop_columns:
+            if drop_col in df.columns:
+                df = df.drop(drop_col, axis=1)
         return df
 
     def initiate_data_transformation(self) -> DataTransformationArtifact:
@@ -97,24 +99,24 @@ class DataTransformation:
             logging.info("Data Transformation Started !!!")
             if not self.data_validation_artifact.validation_status:
                 raise Exception(self.data_validation_artifact.message)
-
+            
+            
             # Load train and test data
             train_df = self.read_data(file_path=self.data_ingestion_artifact.trained_file_path)
             test_df = self.read_data(file_path=self.data_ingestion_artifact.test_file_path)
             logging.info("Train-Test data loaded")
-
+            
             input_feature_train_df = train_df.drop(columns=[TARGET_COLUMN], axis=1)
             target_feature_train_df = train_df[TARGET_COLUMN]
-
+        
             input_feature_test_df = test_df.drop(columns=[TARGET_COLUMN], axis=1)
             target_feature_test_df = test_df[TARGET_COLUMN]
             logging.info("Input and Target cols defined for both train and test df.")
 
             # Apply custom transformations in specified sequence
-       #     input_feature_train_df = self._map_gender_column(input_feature_train_df)
+       
             input_feature_train_df = self._drop_columns(input_feature_train_df)
 
-         #   input_feature_test_df = self._map_gender_column(input_feature_test_df)
             input_feature_test_df = self._drop_columns(input_feature_test_df)
             logging.info("Custom transformations applied to train and test data")
 

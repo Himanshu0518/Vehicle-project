@@ -24,11 +24,13 @@ numerical_columns:
 
 categorical_columns:
   - Gender
-  - Vehicle_Age
+  - Vehicle_Age 
   - Vehicle_Damage
 
 # for data transformation
-drop_columns: '_id' 
+drop_columns: 
+  - '_id' 
+  - 'id'
 
 num_features:
   - Age

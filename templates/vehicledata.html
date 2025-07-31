@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Insurance Prediction</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Vehicle Insurance Prediction</h1>
+
+        <form method="post" action="/">
+            <div class="form-group">
+                <label for="Gender">Gender:</label>
+                <select id="Gender" name="Gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Age">Age:</label>
+                <input type="number" id="Age" name="Age" min="18" max="100" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Driving_License">Driving License:</label>
+                <select id="Driving_License" name="Driving_License" required>
+                    <option value="">Select Option</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Region_Code">Region Code:</label>
+                <input type="number" step="0.01" id="Region_Code" name="Region_Code" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Previously_Insured">Previously Insured:</label>
+                <select id="Previously_Insured" name="Previously_Insured" required>
+                    <option value="">Select Option</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Annual_Premium">Annual Premium:</label>
+                <input type="number" step="0.01" id="Annual_Premium" name="Annual_Premium" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Policy_Sales_Channel">Policy Sales Channel:</label>
+                <input type="number" step="0.01" id="Policy_Sales_Channel" name="Policy_Sales_Channel" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Vintage">Vintage (Days):</label>
+                <input type="number" id="Vintage" name="Vintage" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Vehicle_Age">Vehicle Age:</label>
+                <select id="Vehicle_Age" name="Vehicle_Age" required>
+                    <option value="">Select Vehicle Age</option>
+                    <option value="< 1 Year">Less than 1 Year</option>
+                    <option value="1-2 Year">1-2 Years</option>
+                    <option value="> 2 Years">More than 2 Years</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Vehicle_Damage">Vehicle Damage:</label>
+                <select id="Vehicle_Damage" name="Vehicle_Damage" required>
+                    <option value="">Select Option</option>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+
+            <button type="submit" class="predict-button">Predict Insurance Response</button>
+        </form>
+
+        <form method="get" action="/train">
+            <button type="submit" class="train-button">Train Model</button>
+        </form>
+
+        {% if context %}
+            <div class="result">
+                {% if context == "Response-Yes" %}
+                    <div class="result-positive">
+                        <h2>✅ Prediction Result: Interested in Vehicle Insurance</h2>
+                        <p>The customer is likely to be interested in vehicle insurance.</p>
+                    </div>
+                {% elif context == "Response-No" %}
+                    <div class="result-negative">
+                        <h2>❌ Prediction Result: Not Interested in Vehicle Insurance</h2>
+                        <p>The customer is unlikely to be interested in vehicle insurance.</p>
+                    </div>
+                {% else %}
+                    <div class="result-info">
+                        <h2>{{ context }}</h2>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

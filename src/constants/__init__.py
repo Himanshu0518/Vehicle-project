@@ -1,10 +1,13 @@
 import os
 from datetime import date
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # For MongoDB connection
 DATABASE_NAME = "proj1"
 COLLECTION_NAME = "Proj1-Data"
-MONGODB_URL_KEY = "MONGODB_URL"
+MONGODB_URL_KEY = MONGODB_URL = os.getenv("MONGODB_URL")
 
 PIPELINE_NAME: str = ""
 ARTIFACT_DIR: str = "artifact"
@@ -21,8 +24,8 @@ TEST_FILE_NAME: str = "test.csv"
 SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 
 
-AWS_ACCESS_KEY_ID_ENV_KEY = "AWS_ACCESS_KEY_ID"
-AWS_SECRET_ACCESS_KEY_ENV_KEY = "AWS_SECRET_ACCESS_KEY"
+AWS_ACCESS_KEY_ID_ENV_KEY = AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY_ENV_KEY = AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 REGION_NAME = "us-east-1"
 
 
@@ -62,7 +65,7 @@ MODEL_TRAINER_MIN_SAMPLES_LEAF: int = 6
 MIN_SAMPLES_SPLIT_MAX_DEPTH: int = 10
 MIN_SAMPLES_SPLIT_CRITERION: str = 'entropy'
 MIN_SAMPLES_SPLIT_RANDOM_STATE: int = 101
-
+MODEL_TRAINER_CLASS_WEIGHTS = 'balanced'
 """
 MODEL Evaluation related constants
 """
@@ -73,3 +76,4 @@ MODEL_PUSHER_S3_KEY = "model-registry"
 
 APP_HOST = "0.0.0.0"
 APP_PORT = 5000
+
