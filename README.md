@@ -1,4 +1,4 @@
-# 🚗 Vehicle Data Intelligence System – MLOps End-to-End Project
+# 🚗 Vehicle Insurance prediction System – MLOps End-to-End Project
 
 This project demonstrates the **complete MLOps pipeline** for an ML model trained on vehicle-related data. From **data ingestion using MongoDB**, **model training**, **evaluation**, and **deployment on AWS EC2** using **Docker and GitHub Actions**, the project is structured to reflect **production-grade workflows**.
 
@@ -56,7 +56,7 @@ Build a modular, end-to-end **MLOps pipeline** that:
 ---
 
 ## 📁 Folder Structure
-
+```bash
 VEHICLE-PROJECT/
 │
 ├── .dockerignore
@@ -122,6 +122,7 @@ VEHICLE-PROJECT/
 │
 ├── static/
 ├── templates/
+```
 
 ```bash
 # Clone repo
@@ -136,9 +137,9 @@ conda activate vehicle
 pip install -r requirements.txt
 ```
 
-🌐 Setup Environment Variables
+# 🌐 Setup Environment Variables
 
-# MongoDB Atlas
+## MongoDB Atlas
 ```bash
 $env:MONGODB_URL = "mongodb+srv://<user>:<pass>@cluster.mongodb.net/"
 
@@ -147,36 +148,54 @@ $env:AWS_ACCESS_KEY_ID = "<your_access_key>"
 $env:AWS_SECRET_ACCESS_KEY = "<your_secret_key>"
 ```
 
-☁️ Cloud Integration
+## ☁️ Cloud Integration
+
 ✅ MongoDB Atlas: NoSQL database for vehicle data
+
 ✅ AWS S3: Stores trained model artifacts
+
 ✅ AWS EC2: Hosts the FastAPI app on public IP
+
 ✅ AWS ECR: Container image registry
 
-🔁 CI/CD Workflow
+
+## 🔁 CI/CD Workflow
+
 Automates deployment on each GitHub push to main.
+
 Docker image is built via GitHub Actions
+
 ECR repo stores the container image
+
 EC2 self-hosted runner pulls & runs the container
+
 Secrets managed using GitHub Secrets
 
   
-🔍 Model Pipeline
+## 🔍 Model Pipeline
 Step	Tool/Module
+
 Data Ingestion	PyMongo + MongoDB Atlas
+
 Data Validation	schema.yaml
+
 Data Transformation	Sklearn Preprocessors
-Model Training	RandomForest, LogisticRegression
+
+Model Training	RandomForest
+
 Model Evaluation	Compare with previous model
+
 Model Pusher	Upload to AWS S3
+
 FastAPI Endpoints	/predict
+
 
 🔗 **Live Demo**: [http://18.208.198.133:5000/](http://18.208.198.133:5000/)
 
 ⚠️ **Disclaimer**: This app is currently hosted on AWS under the 12-month free tier. I may delete the services in the future to avoid charges. If the link is inactive, the deployment has likely been removed.
 
 
-🙋‍♂️ Author
+## 🙋‍♂️ Author
 Himanshu Singh
 MLOps | FastAPI | ML Engineer
 📧 Email: himanshu.iiitu2027@gmail.com
