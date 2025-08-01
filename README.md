@@ -63,14 +63,14 @@ VEHICLE-PROJECT/
 ├── .gitignore
 ├── README.md
 ├── demo.py
-├── env
+├── .env
 ├── requirements.txt
 │
 ├── artifact/
 ├── config/
 ├── logs/
 ├── notebooks/
-│   ├── LTECM.csv
+│   ├── experiments.py
 │   └── mongoDB_demo.ipynb
 │
 ├── src/
@@ -119,6 +119,7 @@ VEHICLE-PROJECT/
 │   │
 │   └── utils/
 │       └── __init__.py
+│       └──  main_utils.py
 │
 ├── static/
 ├── templates/
@@ -194,6 +195,11 @@ FastAPI Endpoints	/predict
 
 ⚠️ **Disclaimer**: This app is currently hosted on AWS under the 12-month free tier. I may delete the services in the future to avoid charges. If the link is inactive, the deployment has likely been removed.
 
+## 📽 Demo Video
+
+<a href="https://github.com/Himanshu0518/Assets/blob/main/thumbnail.png" target="_blank">
+  <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg" alt="Watch the demo" width="400"/>
+</a>
 
 ## 🙋‍♂️ Author
 Himanshu Singh
