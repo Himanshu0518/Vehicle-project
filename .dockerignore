@@ -6,6 +6,6 @@ logs
 template.py
 demo.py
 README.md
-LICENSE
 src.egg.-info
 notebook
+__pycache__
