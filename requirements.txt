@@ -1,8 +1,6 @@
-ipykernel
 pandas
 numpy
 matplotlib
-plotly
 seaborn
 scikit-learn
 pymongo
@@ -13,8 +11,10 @@ PyYAML
 boto3
 mypy-boto3-s3
 botocore
-flask
-from_root
+fastapi
+python-multipart
+uvicorn
 jinja2
+python-dotenv 
 imblearn
 -e .
