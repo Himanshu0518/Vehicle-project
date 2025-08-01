@@ -197,9 +197,11 @@ FastAPI Endpoints	/predict
 
 ## 📽 Demo Video
 
-<a href="https://github.com/Himanshu0518/Assets/blob/main/thumbnail.png" target="_blank">
-  <img src="https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg" alt="Watch the demo" width="400"/>
-</a>
+Watch the demo here: [Click to Watch](## 📽 Demo Video
+
+Watch the demo here: [Click to Watch](https://youtu.be/5e-8gAVst2k)
+)
+
 
 ## 🙋‍♂️ Author
 Himanshu Singh
