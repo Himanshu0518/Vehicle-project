@@ -24,7 +24,7 @@ Build a modular, end-to-end **MLOps pipeline** that:
 - Ingests and stores vehicle data using MongoDB Atlas
 - Validates, transforms, and trains models on the dataset
 - Automatically deploys models via **CI/CD pipeline** with Docker & GitHub Actions
-- Hosts prediction API on **AWS EC2** exposed over port `5080`
+- Hosts prediction API on **AWS EC2** exposed over port `5000`
 
 ---
 
